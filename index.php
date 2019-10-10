@@ -6,27 +6,41 @@ $rasberry = $_POST['rasberrytype'];
 $email = $_POST['mail'];
 $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
-echo $firstname . "<br/>";
-echo $lastname . "<br/>";
-echo $gender . "<br/>";
-echo $rasberry . "<br/>";
-echo $email . "<br/>";
-echo $countryy ."<br/>";
-echo $msg;
-print_r($_POST);
+$filtermsg = htmlspecialchars(strip_tags($msg));
+
+// echo "<pre>";
+// print_r($_POST);
+// echo "</pre>";
+
+function specialchar($string){
+	return ctype_alpha($string);
+}
+
+function error($message, $color){
+	return "<small class='$color'> $message </small>";
+}
+
+
+
 ?>
 
 <!DOCTYPE HTML>
 <html>
+<html lang="en">
 	<head>
 		<title>Contact form</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		<meta name="description" content="Rasberry Pi for anyone who wants to learn about computers.">
+		<meta name="keywords" content="computers, rasberrypi, learning, buy, information, it">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">	
 		<link rel="stylesheet" href="assets/css/style.css" type="text/css">
 	</head>
 	<body>
 		<main>
 			<div class="container w-auto">
-				<form class="bgform">
+				<form class="bgform needs-validation" method="post">
 					<div class="row">
 						<div class="col-12 text-center">
 							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size">
@@ -36,21 +50,34 @@ print_r($_POST);
 						<div class="col-12 col-md-5">
 							<label for="lastname" class="text-white">Your last name</label>
 							<br/>
-							<input type="text" name="lastnamee" id="lastname" value=""/>
+							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20"/>
+							<?php
+							// check if the input last name equals not the filtered lastname from special chars
+							if($lastname != specialchar($lastname)){
+							echo error("Please enter only letters", "error");
+
+							}
+							?>
 						</div>
 						<div class="col-12 col-md-5 offset-md-2">
 							<label for="firstname" class="text-white">Firstname</label>
 							<br/>
-							<input type="text" name="firstnamee" id="firstname" value=""/>
+							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10"/>
+							<?php
+							//check for special chars in firstname
+							if($firstname != specialchar($firstname)){
+							echo error("Please enter only letters", "error");
+							}
+							?>
 						</div>
 					</div>
 					<div class="row ml-2">
 						<div class="col-12 col-md-5 mt-2">
 							<div>
-								<label for="fem" class="text-white">Female</label>
+								<label for="fem" class="text-white">Woman</label>
 								<input type="radio" name="gender" id="fem" value="fem"/>
 								<br/>
-								<label for="man" class="text-white">Male</label>
+								<label for="man" class="text-white">Man</label>
 								<input type="radio" name="gender" id="man" value="man"/>
 							</div>
 						</div>
@@ -73,8 +100,8 @@ print_r($_POST);
 								<label for="useremail" class="text-white">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input type="email" name="mail" id="useremail" value=""class="col-12" />
-						</div>
+								<input  name="mail" id="useremail" value=""class="col-12" type="email" />
+							</div>
 						<div class="col-12 mt-2">
 						<label for="subject" class="text-white">Rasberry type</label>
 						<br/>
@@ -87,7 +114,12 @@ print_r($_POST);
 						</div>
 						<div class="col-12 mt-2">
 							<label for="yourmsg" class="text-white">Your message</label>
-							<textarea name="msgyours" id=yourmsg rows="8" cols="40" class="col-12"></textarea>
+							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12"></textarea>
+							<?php
+							if ($msg != $filtermsg){
+								echo error("Don't try to hack this","error");
+							}
+							?>
 						</div>
 						<div class="col text-center">
 							<button type="Submit" class="btn colorbuton mt-2 mb-2">Submit</button>

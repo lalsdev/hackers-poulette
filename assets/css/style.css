@@ -1,3 +1,13 @@
+@font-face {
+    font-family: 'bellotaregular';
+    src: url('../font/Bellota-Regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body{
+    font-family: 'bellotaregular';
+}
 .colorbuton{
     background-color: #15c5bd;
 }
@@ -9,3 +19,9 @@
 .bgform{
     background-color: #303030;
 }
+
+.error{
+    color: red;
+    font-weight: bold;
+}
+
