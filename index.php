@@ -20,8 +20,6 @@ function error($message, $color){
 	return "<small class='$color'> $message </small>";
 }
 
-
-
 ?>
 
 <!DOCTYPE HTML>
@@ -40,7 +38,7 @@ function error($message, $color){
 	<body>
 		<main>
 			<div class="container w-auto">
-				<form class="bgform needs-validation" method="post">
+				<form class="bgform" method="post" action="">
 					<div class="row">
 						<div class="col-12 text-center">
 							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size">
@@ -55,7 +53,9 @@ function error($message, $color){
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != specialchar($lastname)){
 							echo error("Please enter only letters", "error");
-
+							//stores the lastname in variable
+							} else {
+								$getlastname = $lastname;
 							}
 							?>
 						</div>
@@ -67,6 +67,8 @@ function error($message, $color){
 							//check for special chars in firstname
 							if($firstname != specialchar($firstname)){
 							echo error("Please enter only letters", "error");
+							} else {
+								$getfirstname = $firstname;
 							}
 							?>
 						</div>
@@ -117,7 +119,9 @@ function error($message, $color){
 							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12"></textarea>
 							<?php
 							if ($msg != $filtermsg){
-								echo error("Don't try to hack this","error");
+								echo error("Are you trying to do something?","error");
+							} else {
+								$getmessage = $msg;
 							}
 							?>
 						</div>
