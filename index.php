@@ -31,7 +31,6 @@ function error($message, $color){
 ?>
 
 <!DOCTYPE HTML>
-<html>
 <html lang="en">
 	<head>
 		<title>Contact form</title>
@@ -46,7 +45,7 @@ function error($message, $color){
 	<body>
 		<main>
 			<div class="container w-auto">
-				<form class="bgform" method="post" action="">
+				<form class="bgform" method="post" action="process.php">
 					<div class="row">
 						<div class="col-12 text-center">
 							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size" alt="logo-hackers-poulette">
@@ -56,7 +55,7 @@ function error($message, $color){
 						<div class="col-12 col-md-5">
 							<label for="NomDeFam" class="text-white">Your last name</label>
 							<br/>
-							<input type="text" name="NomDeFam" id="NomDeFam" value="" maxlength="20" alt="Your surname please"/>
+							<input type="text" name="NomDeFam" id="NomDeFam" value="" maxlength="20" title="Your surname please"/>
 							<?php
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != specialchar($lastname)){
@@ -72,9 +71,9 @@ function error($message, $color){
 							?>
 						</div>
 						<div class="col-12 col-md-5 offset-md-2">
-							<label for="firstname" class="text-white" alt="your firstname below please">Firstname</label>
+							<label for="firstname" class="text-white" title="your firstname below please">Firstname</label>
 							<br/>
-							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" alt="Your firstname please"/>
+							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" title="Your firstname please"/>
 							<?php
 							//check for special chars in firstname
 							if($firstname != specialchar($firstname)){
@@ -92,11 +91,11 @@ function error($message, $color){
 					<div class="row ml-2">
 						<div class="col-12 col-md-5 mt-2">
 							<div>
-								<label for="fem" class="text-white" alt="button">Woman</label>
-								<input type="radio" name="gender" id="fem" value="fem" alt="are you a woman?"/>
+								<label for="fem" class="text-white" title="female button">Woman</label>
+								<input type="radio" name="gender" id="fem" value="fem" title="are you a woman?"/>
 								<br/>
-								<label for="man" class="text-white" alt="button">Man</label>
-								<input type="radio" name="gender" id="man" value="man" alt="are you a man?"/>
+								<label for="man" class="text-white" titlre="manbutton">Man</label>
+								<input type="radio" name="gender" id="man" value="man" title="are you a man?"/>
 								<?php
 								if (empty($gender) && isset($submityou)){
 									echo error("Choose a gender please","error");
@@ -111,19 +110,19 @@ function error($message, $color){
 								<label for="country" class="text-white">Country</label>
 							</div>
 							<div class="col-12 offset-md-1">
-								<select name="yourcountry" id="country" alt="which country are your from?">
-									<option value="Belgium" class="text-white" alt="Belgium">Belgium</option>
-									<option value="France" class="text-white" alt="France">France</option>
-									<option value="India" class="text-white" alt="India">India</option>
-									<option value="France" class="text-white" alt="Scotland">Scotland</option>
+								<select name="yourcountry" id="country" title="which country are your from?">
+									<option value="Belgium" class="text-white" title="Belgium">Belgium</option>
+									<option value="France" class="text-white" title="France">France</option>
+									<option value="India" class="text-white" title="India">India</option>
+									<option value="France" class="text-white" title="Scotland">Scotland</option>
 								</select>
 							</div>
 						</div>
 							<div class="col-12">
-								<label for="cmoncontact" class="text-white" alt="your email below please">E-mail</label>
+								<label for="cmoncontact" class="text-white" title="your email below please">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input  name="cmoncontact" id="cmoncontact" value=""class="col-12" type="email" alt="Your email please"/>
+								<input  name="cmoncontact" id="cmoncontact" value=""class="col-12" type="email" title="Your email please"/>
 								<?php
 									if($email != $sanitizeemail) {
 									echo error("Please enter a valid email", "error");
@@ -138,16 +137,16 @@ function error($message, $color){
 						<div class="col-12 mt-2">
 						<label for="subject" class="text-white">Rasberry type</label>
 						<br/>
-						<select name="rasberrytype" id="subject" alt="which type of rasberry?">
-							<option value="simple" alt="simple rasberry">simple rasberry</option>
-							<option value="intermediate" alt="more complex rasberry"> rasberry+</option>
-							<option value="advanced" alt="optimised rasberry">rasberry++</option>
-							<option value="other" selected alt="other">Other</option>
+						<select name="rasberrytype" id="subject" title="which type of rasberry?">
+							<option value="simple" title="simple rasberry">simple rasberry</option>
+							<option value="intermediate" title="more complex rasberry"> rasberry+</option>
+							<option value="advanced" title="optimised rasberry">rasberry++</option>
+							<option value="other" selected title="other">Other</option>
 						</select>
 						</div>
 						<div class="col-12 mt-2">
-							<label for="yourmsg" class="text-white" alt="your message below please">Your message</label>
-							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12" alt="your message here"></textarea>
+							<label for="yourmsg" class="text-white" title="your message below please">Your message</label>
+							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12" title="your message here"></textarea>
 							<?php
 							if ($msg != $filtermsg){
 								echo error("Are you trying to do something?","error");
