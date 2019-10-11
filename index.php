@@ -1,9 +1,9 @@
 <?php
 $gender = $_POST['gender'];
 $firstname = $_POST['firstnamee'];
-$lastname = $_POST['lastnamee'];
+$lastname = $_POST['NomDeFam'];
 $rasberry = $_POST['rasberrytype'];
-$email = $_POST['mail'];
+$email = $_POST['cmoncontact'];
 $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
 $filtermsg = htmlspecialchars(strip_tags($msg));
@@ -54,9 +54,9 @@ function error($message, $color){
 					</div>
 					<div class="row ml-2">
 						<div class="col-12 col-md-5">
-							<label for="lastname" class="text-white">Your last name</label>
+							<label for="NomDeFam" class="text-white">Your last name</label>
 							<br/>
-							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20"/>
+							<input type="text" name="NomDeFam" id="NomDeFam" value="" maxlength="20" alt="Your surname please"/>
 							<?php
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != specialchar($lastname)){
@@ -72,9 +72,9 @@ function error($message, $color){
 							?>
 						</div>
 						<div class="col-12 col-md-5 offset-md-2">
-							<label for="firstname" class="text-white">Firstname</label>
+							<label for="firstname" class="text-white" alt="your firstname below please">Firstname</label>
 							<br/>
-							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10"/>
+							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" alt="Your firstname please"/>
 							<?php
 							//check for special chars in firstname
 							if($firstname != specialchar($firstname)){
@@ -92,11 +92,11 @@ function error($message, $color){
 					<div class="row ml-2">
 						<div class="col-12 col-md-5 mt-2">
 							<div>
-								<label for="fem" class="text-white">Woman</label>
-								<input type="radio" name="gender" id="fem" value="fem"/>
+								<label for="fem" class="text-white" alt="button">Woman</label>
+								<input type="radio" name="gender" id="fem" value="fem" alt="are you a woman?"/>
 								<br/>
-								<label for="man" class="text-white">Man</label>
-								<input type="radio" name="gender" id="man" value="man"/>
+								<label for="man" class="text-white" alt="button">Man</label>
+								<input type="radio" name="gender" id="man" value="man" alt="are you a man?"/>
 								<?php
 								if (empty($gender) && isset($submityou)){
 									echo error("Choose a gender please","error");
@@ -111,19 +111,19 @@ function error($message, $color){
 								<label for="country" class="text-white">Country</label>
 							</div>
 							<div class="col-12 offset-md-1">
-								<select name="yourcountry" id="country">
-									<option value="Belgium" class="text-white">Belgium</option>
-									<option value="France" class="text-white">France</option>
-									<option value="India" class="text-white">India</option>
-									<option value="France" class="text-white">Scotland</option>
+								<select name="yourcountry" id="country" alt="which country are your from?">
+									<option value="Belgium" class="text-white" alt="Belgium">Belgium</option>
+									<option value="France" class="text-white" alt="France">France</option>
+									<option value="India" class="text-white" alt="India">India</option>
+									<option value="France" class="text-white" alt="Scotland">Scotland</option>
 								</select>
 							</div>
 						</div>
 							<div class="col-12">
-								<label for="useremail" class="text-white">E-mail</label>
+								<label for="cmoncontact" class="text-white" alt="your email below please">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input  name="mail" id="useremail" value=""class="col-12" type="email"/>
+								<input  name="cmoncontact" id="cmoncontact" value=""class="col-12" type="email" alt="Your email please"/>
 								<?php
 									if($email != $sanitizeemail) {
 									echo error("Please enter a valid email", "error");
@@ -138,16 +138,16 @@ function error($message, $color){
 						<div class="col-12 mt-2">
 						<label for="subject" class="text-white">Rasberry type</label>
 						<br/>
-						<select name="rasberrytype" id="subject">
-							<option value="simple">simple rasberry</option>
-							<option value="intermediate"> rasberry+</option>
-							<option value="advanced">rasberry++</option>
-							<option value="other" selected>Other</option>
+						<select name="rasberrytype" id="subject" alt="which type of rasberry?">
+							<option value="simple" alt="simple rasberry">simple rasberry</option>
+							<option value="intermediate" alt="more complex rasberry"> rasberry+</option>
+							<option value="advanced" alt="optimised rasberry">rasberry++</option>
+							<option value="other" selected alt="other">Other</option>
 						</select>
 						</div>
 						<div class="col-12 mt-2">
-							<label for="yourmsg" class="text-white">Your message</label>
-							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12"></textarea>
+							<label for="yourmsg" class="text-white" alt="your message below please">Your message</label>
+							<textarea name="msgyours" id=yourmsg rows="5" cols="10" class="col-12" alt="your message here"></textarea>
 							<?php
 							if ($msg != $filtermsg){
 								echo error("Are you trying to do something?","error");
@@ -171,8 +171,9 @@ function error($message, $color){
 			<label class="winnie" for="email"></label>
 			<input class="winnie" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
 			<label class="winnie" for="lastname"></label>
-			<input class="winnie" autocomplete="off" type="lastname" id="lastname" name="lastname" placeholder="Your lastname here">
-
+			<input class="winnie" autocomplete="off" type="text" id="lastname" name="lastname" placeholder="Your lastname here">
+			<label class="winnie" for="yourmsg"></label>
+			<input class="winnie" autocomplete="off" type="text" id="yourmsg" name="yourmsg" placeholder="Your message here">
 		</div>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</body>

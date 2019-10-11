@@ -32,13 +32,13 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 
 - the project repository must include a mock-up  :thumbsup:
 - the form must have semantical HTML   :thumbsup:
-- the HTML must be accessible to the blinds
+- the HTML must be accessible to the blinds :thumbsup:
 - in case of wrong input return the form with a visual error display
 - display the error message near the correct input field   :thumbsup:
 - the error message must be readable (helpful to users)   :thumbsup:
 - the form has to be sanitised and validated (server side)
 - if an answer validate, respond by email to a given address
-- implement anti spam the technique of honeypot
+- implement anti spam the technique of honeypot :thumbsup:
 
 
 ### Explanation methodology
@@ -48,16 +48,16 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 
 
 # Tools used
+- HTML,CSS
 - Bootstrap
 - Figma for the mock-up
-- HTML,CSS
 - PHP
 - Heroku to deploy the form
 
 
 # Progression
 The form is a bit secure, but can certainly be improved, <br>
-Sanitazation and validation to be improved
+Sanitazation and validation to be improved <br>
 Any constructives comments, are welcome 👋
 
 
