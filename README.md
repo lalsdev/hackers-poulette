@@ -6,8 +6,8 @@ You can see the form [here](http://hackers-poulettess.herokuapp.com/index.php).
 ## Motivation behind this?
 Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels training in Web Development. 3 Days to make this, so a dead-line to meet. I tried to make sense of servers, how PHP works, what is docker, how do you install it, what is docker compose and many other new terms. This is the first "back-end" project.
 
-## Form Mockup
-![logo](assets/img/hackers-poulette-mockup-big.png)
+### Form Mockup
+![logo](assets/img/hackers-poulette-mockup-bigg.png)
 
 
 ## Objectives
