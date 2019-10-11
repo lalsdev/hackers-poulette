@@ -22,11 +22,11 @@ function error($message, $color){
 	return "<small class='$color'> $message </small>";
 }
 
-// function sendemail(){
-// 	if (isset($oklastname) && isset($okfirstname) && isset($gender) && isset($sanitizeemail) && isset($countryy) && isset($filtermsg)){
-// 		mail();
-// 	}
+$subject = "Merci pour votre email";
+$textmsg = "Bonjour". $okfirstname . "merci pour votre demande, nous vous repondrons treeees vite";
+$headers = "hello@poulette.cotcot";
 
+mail($sanitizeemail,$subject,$textmsg,$headers);
 
 ?>
 
@@ -45,7 +45,7 @@ function error($message, $color){
 	<body>
 		<main>
 			<div class="container w-auto">
-				<form class="bgform" method="post" action="process.php">
+				<form class="bgform" method="post" action="">
 					<div class="row">
 						<div class="col-12 text-center">
 							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size" alt="logo-hackers-poulette">
