@@ -30,12 +30,12 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 
 #### Instructions
 
-- the project repository must include a mock-up  :white_check_mark:
-- the form must have semantical HTML  :white_check_mark:
+- the project repository must include a mock-up  :thumbsup:
+- the form must have semantical HTML   :thumbsup:
 - the HTML must be accessible to the blinds
 - in case of wrong input return the form with a visual error display
-- display the error message near the correct input field  :white_check_mark:
-- the error message must be readable (helpful to users)  :white_check_mark:
+- display the error message near the correct input field   :thumbsup:
+- the error message must be readable (helpful to users)   :thumbsup:
 - the form has to be sanitised and validated (server side)
 - if an answer validate, respond by email to a given address
 - implement anti spam the technique of honeypot
