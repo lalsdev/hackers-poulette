@@ -94,7 +94,7 @@ function error($message, $color){
 								<label for="fem" class="text-white" title="female button">Woman</label>
 								<input type="radio" name="gender" id="fem" value="fem" title="are you a woman?"/>
 								<br/>
-								<label for="man" class="text-white" titlre="manbutton">Man</label>
+								<label for="man" class="text-white" title="manbutton">Man</label>
 								<input type="radio" name="gender" id="man" value="man" title="are you a man?"/>
 								<?php
 								if (empty($gender) && isset($submityou)){
@@ -122,7 +122,7 @@ function error($message, $color){
 								<label for="cmoncontact" class="text-white" title="your email below please">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input  name="cmoncontact" id="cmoncontact" value=""class="col-12" type="email" title="Your email please"/>
+								<input  name="cmoncontact" id="cmoncontact" class="col-12" type="email" title="Your email please"/>
 								<?php
 									if($email != $sanitizeemail) {
 									echo error("Please enter a valid email", "error");
