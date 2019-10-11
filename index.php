@@ -166,13 +166,13 @@ function error($message, $color){
 		</main>
 		<div>
 			<label class="winnie" for="firstname"></label>
-			<input class="winnie" autocomplete="off" type="text" id="firstname" name="firstname" placeholder="Your firstname here">
+			<input class="winnie" autocomplete="off" type="text" id="firstname" name="firstname" placeholder="Your firstname here" title="firstname">
 			<label class="winnie" for="email"></label>
-			<input class="winnie" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
+			<input class="winnie" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here" title="email">
 			<label class="winnie" for="lastname"></label>
-			<input class="winnie" autocomplete="off" type="text" id="lastname" name="lastname" placeholder="Your lastname here">
+			<input class="winnie" autocomplete="off" type="text" id="lastname" name="lastname" placeholder="Your lastname here" title="lastname">
 			<label class="winnie" for="yourmsg"></label>
-			<input class="winnie" autocomplete="off" type="text" id="yourmsg" name="yourmsg" placeholder="Your message here">
+			<input class="winnie" autocomplete="off" type="text" id="yourmsg" name="yourmsg" placeholder="Your message here" title="message">
 		</div>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</body>
