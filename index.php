@@ -7,6 +7,7 @@ $email = $_POST['mail'];
 $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
 $filtermsg = htmlspecialchars(strip_tags($msg));
+$sanitizeemail = filter_var($email, FILTER_SANITIZE_EMAIL);
 
 // echo "<pre>";
 // print_r($_POST);
@@ -48,7 +49,7 @@ function error($message, $color){
 						<div class="col-12 col-md-5">
 							<label for="lastname" class="text-white">Your last name</label>
 							<br/>
-							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20"/>
+							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20" required/>
 							<?php
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != specialchar($lastname)){
@@ -62,7 +63,7 @@ function error($message, $color){
 						<div class="col-12 col-md-5 offset-md-2">
 							<label for="firstname" class="text-white">Firstname</label>
 							<br/>
-							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10"/>
+							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" required/>
 							<?php
 							//check for special chars in firstname
 							if($firstname != specialchar($firstname)){
@@ -102,7 +103,14 @@ function error($message, $color){
 								<label for="useremail" class="text-white">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input  name="mail" id="useremail" value=""class="col-12" type="email" />
+								<input  name="mail" id="useremail" value=""class="col-12" type="email" required/>
+								<?php
+									if($email != $sanitizeemail) {
+									echo error("Please enter a valid email", "error");
+									} else {
+										$getfirstname = $firstname;
+									}
+								?>
 							</div>
 						<div class="col-12 mt-2">
 						<label for="subject" class="text-white">Rasberry type</label>
@@ -128,9 +136,6 @@ function error($message, $color){
 						<div class="col text-center">
 							<button type="Submit" class="btn colorbuton mt-2 mb-2">Submit</button>
 						<div>
-					
-
-							
 				</form>
 			</div>
 		</main>
