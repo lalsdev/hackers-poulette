@@ -8,6 +8,7 @@ $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
 $filtermsg = htmlspecialchars(strip_tags($msg));
 $sanitizeemail = filter_var($email, FILTER_SANITIZE_EMAIL);
+$submityou = $_POST['submit'];
 
 // echo "<pre>";
 // print_r($_POST);
@@ -20,6 +21,12 @@ function specialchar($string){
 function error($message, $color){
 	return "<small class='$color'> $message </small>";
 }
+
+// function sendemail(){
+// 	if (isset($oklastname) && isset($okfirstname) && isset($gender) && isset($sanitizeemail) && isset($countryy) && isset($filtermsg)){
+// 		mail();
+// 	}
+
 
 ?>
 
@@ -42,34 +49,42 @@ function error($message, $color){
 				<form class="bgform" method="post" action="">
 					<div class="row">
 						<div class="col-12 text-center">
-							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size">
+							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size" alt="logo-hackers-poulette">
 						</div>
 					</div>
 					<div class="row ml-2">
 						<div class="col-12 col-md-5">
 							<label for="lastname" class="text-white">Your last name</label>
 							<br/>
-							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20" required/>
+							<input type="text" name="lastnamee" id="lastname" value="" maxlength="20"/>
 							<?php
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != specialchar($lastname)){
-							echo error("Please enter only letters", "error");
+								$oklastname = $lastname ;
+								echo error("Please enter only letters", "error");
 							//stores the lastname in variable
 							} else {
 								$getlastname = $lastname;
+							}
+							if (empty($lastname) && (isset($submityou))){
+								echo error("Please type your lastname", "error");
 							}
 							?>
 						</div>
 						<div class="col-12 col-md-5 offset-md-2">
 							<label for="firstname" class="text-white">Firstname</label>
 							<br/>
-							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" required/>
+							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10"/>
 							<?php
 							//check for special chars in firstname
 							if($firstname != specialchar($firstname)){
-							echo error("Please enter only letters", "error");
+								$okfirstname = $firstname;
+								echo error("Please enter only letters", "error");
 							} else {
 								$getfirstname = $firstname;
+							}
+							if (empty($firstname)  && (isset($submityou))){
+								echo error("Please type your firstname", "error");
 							}
 							?>
 						</div>
@@ -82,6 +97,11 @@ function error($message, $color){
 								<br/>
 								<label for="man" class="text-white">Man</label>
 								<input type="radio" name="gender" id="man" value="man"/>
+								<?php
+								if (empty($gender) && isset($submityou)){
+									echo error("Choose a gender please","error");
+								}
+								?>
 							</div>
 						</div>
 						<div class="col-md-2">
@@ -103,12 +123,15 @@ function error($message, $color){
 								<label for="useremail" class="text-white">E-mail</label>
 							</div>
 							<div class="col-12">
-								<input  name="mail" id="useremail" value=""class="col-12" type="email" required/>
+								<input  name="mail" id="useremail" value=""class="col-12" type="email"/>
 								<?php
 									if($email != $sanitizeemail) {
 									echo error("Please enter a valid email", "error");
 									} else {
 										$getfirstname = $firstname;
+									}
+									if (isset($submityou) && empty($email)){
+										echo error("Please type an email", "error");
 									}
 								?>
 							</div>
@@ -131,14 +154,26 @@ function error($message, $color){
 							} else {
 								$getmessage = $msg;
 							}
+							if (empty($msg) && (isset($submityou))){
+								echo error("Type a message please", "error");
+							}
 							?>
 						</div>
 						<div class="col text-center">
-							<button type="Submit" class="btn colorbuton mt-2 mb-2">Submit</button>
+							<button type="Submit" class="btn colorbuton mt-2 mb-2" name="submit">Submit</button>
 						<div>
 				</form>
 			</div>
 		</main>
+		<div>
+			<label class="winnie" for="firstname"></label>
+			<input class="winnie" autocomplete="off" type="text" id="firstname" name="firstname" placeholder="Your firstname here">
+			<label class="winnie" for="email"></label>
+			<input class="winnie" autocomplete="off" type="email" id="email" name="email" placeholder="Your e-mail here">
+			<label class="winnie" for="lastname"></label>
+			<input class="winnie" autocomplete="off" type="lastname" id="lastname" name="lastname" placeholder="Your lastname here">
+
+		</div>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 	</body>
 </html>
