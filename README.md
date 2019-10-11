@@ -10,33 +10,57 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 ![logo](assets/img/hackers-poulette-mockup-bigg.png)
 
 
-## Objectives
-### Improve these
+### Objectives
+#### Improve these
 - semantical HTML
 - accessibility in HTML
 - methodology of progressive enhancement
 - PHP programming
 - project planning
 - mock-up creation
-- Heroku to deploy the form
+- respect a graphic chart
+
+#### Form elements
+- name and lastname
+- gender
+- email address
+- country
+- subject (3 possibilities + default value of other)
+- message
+
+#### Instructions
+
+- the project repository must include a mock-up  :white_check_mark:
+- the form must have semantical HTML  :white_check_mark:
+- the HTML must be accessible to the blinds
+- in case of wrong input return the form with a visual error display
+- display the error message near the correct input field  :white_check_mark:
+- the error message must be readable (helpful to users)  :white_check_mark:
+- the form has to be sanitised and validated (server side)
+- if an answer validate, respond by email to a given address
+- implement anti spam the technique of honeypot
 
 
+### Explanation methodology
+- design the mock-up of the form how I want the elements to be disposed
+- create the HTML structure for semantics
+- use Bootstrap grid system to display elements how the mock-up shows
 
-## Explanation methodology
 
 # Tools used
 - Bootstrap
 - Figma for the mock-up
 - HTML,CSS
 - PHP
+- Heroku to deploy the form
+
 
 # Progression
 The form is a bit secure, but can certainly be improved, <br>
 Sanitazation and validation to be improved
 Any constructives comments, are welcome 👋
 
-# Credits 
-All pictures coming from [Pixabay](https://pixabay.com/fr/) (royalty-free pictures) <br>
+
 October 2019 <br>
 Made in Belgium 🇧🇪
 
