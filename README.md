@@ -44,7 +44,7 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 ### Explanation methodology
 - design the mock-up of the form how I want the elements to be disposed
 - create the HTML structure for semantics
-- use of Bootstrap grid system to display elements how the mock-up shows
+- use of Bootstrap grid system and classes to display elements how the mock-up shows
 
 
 # Tools used
