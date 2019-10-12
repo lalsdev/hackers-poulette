@@ -14,8 +14,17 @@ $submityou = $_POST['submit'];
 // print_r($_POST);
 // echo "</pre>";
 
-function specialchar($string){
-	return ctype_alpha($string);
+// function sanitize_validate_input($string){
+
+// 	return ctype_alpha($string);
+// }
+
+function sanitize_validate_input($input) {
+	$input = trim($input);
+	$input = stripslashes($input);
+	$input = htmlspecialchars($input);
+	$input = ctype_alpha($input);
+	return $input;
 }
 
 function error($message, $color){
@@ -23,10 +32,10 @@ function error($message, $color){
 }
 
 $subject = "Thanks for your email";
-$textmsg = "Hello". $filteredfirstname . "we will get back to you today";
+$textmsg= "Hello we will get back to you soon";
 $headers = "hello@poulette.be";
 
-mail($filteredemail,$subject,$textmsg,$headers);
+mail($filteredeamil,$subject,$textmsg,$headers);
 
 ?>
 
@@ -45,10 +54,10 @@ mail($filteredemail,$subject,$textmsg,$headers);
 	<body>
 		<main>
 			<div class="container w-auto">
-				<form class="bgform" method="post" action="">
+				<form class="bgform pt-5" method="post" action="">
 					<div class="row">
 						<div class="col-12 text-center">
-							<img src="assets/img/hackers-poulette-logo.png" class="img-fluid img-size" alt="logo-hackers-poulette">
+							<img src="assets/img/hackers-poulette-logo-ameliore.png" class="img-fluid img-size" alt="logo-hackers-poulette">
 						</div>
 					</div>
 					<div class="row ml-2">
@@ -58,7 +67,7 @@ mail($filteredemail,$subject,$textmsg,$headers);
 							<input type="text" name="NomDeFam" id="NomDeFam" value="" maxlength="20" title="Your surname please" placeholder="BestCoachs"/>
 							<?php
 							// check if the input last name equals not the filtered lastname from special chars
-							if($lastname != specialchar($lastname)){
+							if($lastname != sanitize_validate_input($lastname)){
 								echo error("Please enter only letters", "error");
 							//stores the lastname in variable
 							} else {
@@ -75,11 +84,11 @@ mail($filteredemail,$subject,$textmsg,$headers);
 							<input type="text" name="firstnamee" id="firstname" value="" maxlength="10" title="Your firstname please" placeholder="Marly"/>
 							<?php
 							//check for special chars in firstname
-							if($firstname != specialchar($firstname)){
-								$filteredfirstname = $firstname;
+							if($firstname != sanitize_validate_input($firstname)){
+								// $filteredfirstname = $firstname;
 								echo error("Please enter only letters", "error");
 							} else {
-								$getfirstname = $firstname;
+								$filteredfirstname = $firstname;
 							}
 							if (empty($firstname)  && (isset($submityou))){
 								echo error("Please type your firstname", "info");
@@ -124,7 +133,10 @@ mail($filteredemail,$subject,$textmsg,$headers);
 									if($email != filter_var($email, FILTER_SANITIZE_EMAIL)) {
 									echo error("Please enter a valid email", "error");
 									} else {
-										$email = $filteredemail;
+										$filteredeamil = $email;
+									}
+									if($email != filter_var($email, FILTER_VALIDATE_EMAIL)){
+										echo error("Please enter a valid email", "error");
 									}
 									if (isset($submityou) && empty($email)){
 										echo error("This needs to be filled , type an email please", "info");
@@ -135,9 +147,9 @@ mail($filteredemail,$subject,$textmsg,$headers);
 						<label for="subject" class="text-white">Rasberry type</label>
 						<br/>
 						<select name="rasberrytype" id="subject" title="which type of rasberry?">
-							<option value="simple" title="starter kit">kit starter</option>
-							<option value="intermediate" title="more complex rasberry kit"> kit intermediate</option>
-							<option value="advanced" title="for legends rasberry kit">kit intermediate+ </option>
+							<option value="simple" title="starter kit">kit build a media center</option>
+							<option value="intermediate" title="more complex rasberry kit"> kit old-school video games</option>
+							<option value="advanced" title="for legends rasberry kit">kit build a Linux computer </option>
 							<option value="other" selected title="other">Other</option>
 						</select>
 						</div>
