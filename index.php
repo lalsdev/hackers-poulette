@@ -23,7 +23,7 @@ function error($message, $color){
 }
 
 $subject = "Thanks for your email";
-$textmsg = "Hello". $filteredfirstname . "we will get back to you today";
+$textmsg = "Hello". $firstname . "we will get back to you today";
 $headers = "hello@poulette.be";
 
 mail($sanitizeemail,$subject,$textmsg,$headers);
