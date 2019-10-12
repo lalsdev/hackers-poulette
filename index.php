@@ -7,7 +7,7 @@ $email = $_POST['cmoncontact'];
 $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
 $filtermsg = htmlspecialchars(strip_tags($msg));
-$sanitizeemail = filter_var($email, FILTER_SANITIZE_EMAIL);
+// $sanitizeemail = filter_var($email, FILTER_SANITIZE_EMAIL);
 $submityou = $_POST['submit'];
 
 // echo "<pre>";
@@ -26,7 +26,7 @@ $subject = "Thanks for your email";
 $textmsg = "Hello". $filteredfirstname . "we will get back to you today";
 $headers = "hello@poulette.be";
 
-mail($filteredeamil,$subject,$textmsg,$headers);
+mail($filteredemail,$subject,$textmsg,$headers);
 
 ?>
 
@@ -121,10 +121,10 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 							<div class="col-12">
 								<input  type="text" name="cmoncontact" id="cmoncontact" class="col-12" title="Your email please" placeholder="egg@poulette.cotcot"/>
 								<?php
-									if($email != $sanitizeemail) {
+									if($email != filter_var($email, FILTER_SANITIZE_EMAIL)) {
 									echo error("Please enter a valid email", "error");
 									} else {
-										$filteredeamil = $email;
+										$email = $filteredemail;
 									}
 									if (isset($submityou) && empty($email)){
 										echo error("This needs to be filled , type an email please", "info");
