@@ -8,8 +8,9 @@
 body{
     font-family: 'bellotaregular';
 }
-.colorbuton{
+.btnstyle{
     background-color: #15c5bd;
+    padding: 0.5em;
 }
 
 .youcenter{
@@ -18,10 +19,16 @@ body{
 
 .bgform{
     background-color: #303030;
+    padding: 1em;
 }
 
 .error{
     color: red;
+    font-weight: bold;
+}
+
+.info{
+    color:yellow;
     font-weight: bold;
 }
 .winnie{
@@ -33,3 +40,15 @@ body{
     width: 0;
     z-index: -1;
 }
+
+input[type=text]:focus {
+    border: 3px solid #15c5bd;
+  }
+
+textarea[type=text]:focus {
+    border: 3px solid #15c5bd;
+  }
+
+
+
+
