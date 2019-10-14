@@ -4,7 +4,7 @@ We have to build a form to the name of the company Hackers Poulette. <br> They w
 You can see the form [here](http://hackers-poulettess.herokuapp.com/index.php).
 
 ## Motivation behind this?
-Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels training in Web Development. 3 Days to make this, so a dead-line to meet. I tried to make sense of servers, how PHP works, what is docker,docker-compose  and how do you install it, deploy a site with Heroku too. This is my first "back-end" project.
+Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels training in Web Development. 3 Days to make this, so a dead-line to meet. While doing this project, I had to try to make sense of servers, how PHP works, what is docker, docker-compose and how do you install it, deploy a site with Heroku too. This is my first "back-end" project.
 
 ### Form Mockup
 ![logo](assets/img/hackers-poulette-mockup-bigg.png)
@@ -44,7 +44,7 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 ### Explanation methodology
 - design the mock-up of the form how I want the elements to be disposed
 - create the HTML structure for semantics
-- use of Bootstrap grid system and classes to display elements how the mock-up shows
+- use of Bootstrap grid system and classes to display elements how the mock-up displayed elements
 
 
 # Tools used
