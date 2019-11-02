@@ -90,7 +90,7 @@ function error($message, $color){
 						</div>
 					</div>
 					<div class="row ml-2 mt-2">
-							<div class="col-12 col-md-5 mt-2">
+							<div class="col-12 col-md-5 mt-2 border">
 								<label for="fem" class="text-white" title="female button">Woman</label>
 								<input type="radio" name="gender" id="fem" value="fem" title="are you a woman?"/>
 								<br/>
@@ -107,17 +107,17 @@ function error($message, $color){
 							</div>
 						<div class="col-md-2">
 						</div>
-						<div class="row mt-2">
+						<div class="row mt-2 offset-6">
 							<div class="col-12 offset-1">
 								<label for="country" class="text-white">Country</label>
 							</div>
-							<div class="col-12 offset-1">
+							<div class="col-12 offset-1 border">
 								<select name="yourcountry" id="country" title="which country are your from?">
 								<?php
+								// uses countries array to display them
 								include 'countries.php';
 								foreach ($countries as $country){
-									echo 
-									"<option value='$country' class='text-white' title='$country'>$country</option>";
+									echo "<option value='$country' class='text-white' title='$country'>$country</option>";
 								}
 								?>
 								</select>
