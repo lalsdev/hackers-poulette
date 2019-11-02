@@ -1,31 +1,5 @@
-<?
-### VARIABLES SET ###
-$gender = $_POST['gender'];
-$firstname = $_POST['firstnamee'];
-$lastname = $_POST['NomDeFam'];
-$rasberry = $_POST['rasberrytype'];
-$email = $_POST['cmoncontact'];
-$countryy = $_POST['yourcountry'];
-$msg = $_POST['msgyours'];
-// $allinfo = 'first name:'.$firstname .'<br/>lastname:'. $lastname .'<br/>gender:' .$gender . '<br/>rasberry type:' . $rasberry . '<br/>country:' . $countryy . '<br/>message:' . $msg . '<br/>email:' . $email;
-// ;
-$filtermsg = htmlspecialchars(strip_tags($msg));
-$submityou = $_POST['submit'];
-
-
-### FUNCTIONS ###
-function sanitize_validate_input($input) {
-	$input = trim($input);
-	$input = stripslashes($input);
-	$input = htmlspecialchars($input);
-	$input = ctype_alpha($input);
-	return $input;
-}
-
-function error($message, $color){
-	return "<small class='$color'> $message </small>";
-}
-
+<?php
+include 'variablesandfunctions.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -90,7 +64,8 @@ function error($message, $color){
 						</div>
 					</div>
 					<div class="row ml-2 mt-2">
-							<div class="col-12 col-md-5 mt-2 border">
+							<div class="col-12 col-md-5 mt-2">
+								<label for="gender" class="text-white" title="gender">Your gender</label> <br/>
 								<label for="fem" class="text-white" title="female button">Woman</label>
 								<input type="radio" name="gender" id="fem" value="fem" title="are you a woman?"/>
 								<br/>
@@ -105,13 +80,9 @@ function error($message, $color){
 								}
 								?>
 							</div>
-						<div class="col-md-2">
-						</div>
-						<div class="row mt-2 offset-6">
+						<div class="row mt-2">
 							<div class="col-12 offset-1">
-								<label for="country" class="text-white">Country</label>
-							</div>
-							<div class="col-12 offset-1 border">
+								<label for="country" class="text-white">Country</label><br />
 								<select name="yourcountry" id="country" title="which country are your from?">
 								<?php
 								// uses countries array to display them
