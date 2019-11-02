@@ -1,4 +1,4 @@
-<?php
+<?
 ### VARIABLES SET ###
 $gender = $_POST['gender'];
 $firstname = $_POST['firstnamee'];
@@ -113,10 +113,13 @@ function error($message, $color){
 							</div>
 							<div class="col-12 offset-1">
 								<select name="yourcountry" id="country" title="which country are your from?">
-									<option value="Belgium" class="text-white" title="Belgium">Belgium</option>
-									<option value="France" class="text-white" title="France">France</option>
-									<option value="India" class="text-white" title="India">India</option>
-									<option value="France" class="text-white" title="Scotland">Scotland</option>
+								<?php
+								include 'countries.php';
+								foreach ($countries as $country){
+									echo 
+									"<option value='$country' class='text-white' title='$country'>$country</option>";
+								}
+								?>
 								</select>
 							</div>
 						</div>
