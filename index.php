@@ -1,4 +1,5 @@
 <?php
+### VARIABLES SET ###
 $gender = $_POST['gender'];
 $firstname = $_POST['firstnamee'];
 $lastname = $_POST['NomDeFam'];
@@ -6,19 +7,13 @@ $rasberry = $_POST['rasberrytype'];
 $email = $_POST['cmoncontact'];
 $countryy = $_POST['yourcountry'];
 $msg = $_POST['msgyours'];
+// $allinfo = 'first name:'.$firstname .'<br/>lastname:'. $lastname .'<br/>gender:' .$gender . '<br/>rasberry type:' . $rasberry . '<br/>country:' . $countryy . '<br/>message:' . $msg . '<br/>email:' . $email;
+// ;
 $filtermsg = htmlspecialchars(strip_tags($msg));
-// $sanitizeemail = filter_var($email, FILTER_SANITIZE_EMAIL);
 $submityou = $_POST['submit'];
 
-// echo "<pre>";
-// print_r($_POST);
-// echo "</pre>";
 
-// function sanitize_validate_input($string){
-
-// 	return ctype_alpha($string);
-// }
-
+### FUNCTIONS ###
 function sanitize_validate_input($input) {
 	$input = trim($input);
 	$input = stripslashes($input);
@@ -30,12 +25,6 @@ function sanitize_validate_input($input) {
 function error($message, $color){
 	return "<small class='$color'> $message </small>";
 }
-
-$subject = "Thanks for your email";
-$textmsg= "Hello we will get back to you soon";
-$headers = "hello@poulette.be";
-
-mail($filteredeamil,$subject,$textmsg,$headers);
 
 ?>
 
@@ -54,6 +43,10 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 	<body>
 		<main>
 			<div class="container w-auto">
+				<?php 
+				// msg pops if the inputs ok
+				include 'msgoksend.php';
+				?>
 				<form class="bgform pt-5" method="post" action="">
 					<div class="row">
 						<div class="col-12 text-center">
@@ -71,7 +64,7 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 								echo error("Please enter only letters", "error");
 							//stores the lastname in variable if sanitize
 							} else {
-								$filteredlastname = $lastname;
+								// $filteredlastname = $lastname;
 							}
 							if (empty($lastname)  && (isset($submityou))){
 								echo error("Please type your lastname", "info");
@@ -88,7 +81,7 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 								// $filteredfirstname = $firstname;
 								echo error("Please enter only letters", "error");
 							} else {
-								$filteredfirstname = $firstname;
+								// $filteredfirstname = $firstname;
 							}
 							if (empty($firstname)  && (isset($submityou))){
 								echo error("Please type your firstname", "info");
@@ -103,6 +96,9 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 								<br/>
 								<label for="man" class="text-white" title="manbutton">Man</label>
 								<input type="radio" name="gender" id="man" value="man" title="are you a man?"/>
+								<br/>
+								<label for="other" class="text-white" title="otherbutton">Other</label>
+								<input type="radio" name="gender" id="other" value="Other" title="Other type?"/>
 								<?php
 								if (empty($gender) && isset($submityou)){
 									echo error("Choose a gender please","error");
@@ -130,11 +126,6 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 							<div class="col-12">
 								<input  type="text" name="cmoncontact" id="cmoncontact" class="col-12" title="Your email please" placeholder="egg@poulette.cotcot"/>
 								<?php
-									if($email != filter_var($email, FILTER_SANITIZE_EMAIL)) {
-									echo error("Please enter a valid email", "error");
-									} else {
-										$filteredeamil = $email;
-									}
 									if($email != filter_var($email, FILTER_VALIDATE_EMAIL)){
 										echo error("Please enter a valid email", "error");
 									}
@@ -160,7 +151,7 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 							if ($msg != $filtermsg){
 								echo error("Are you trying to do something?","error");
 							} else {
-								$getmessage = $msg;
+								// $getmessage = $msg;
 							}
 							if (empty($msg) && (isset($submityou))){
 								echo error("This needs to be filled, type a message please", "info");
