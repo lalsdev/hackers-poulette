@@ -69,11 +69,11 @@ mail($filteredeamil,$subject,$textmsg,$headers);
 							// check if the input last name equals not the filtered lastname from special chars
 							if($lastname != sanitize_validate_input($lastname)){
 								echo error("Please enter only letters", "error");
-							//stores the lastname in variable
+							//stores the lastname in variable if sanitize
 							} else {
 								$filteredlastname = $lastname;
 							}
-							if (empty($lastname) && (isset($submityou))){
+							if (empty($lastname)  && (isset($submityou))){
 								echo error("Please type your lastname", "info");
 							}
 							?>

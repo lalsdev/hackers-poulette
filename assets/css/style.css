@@ -54,6 +54,17 @@ textarea[type=text]:focus {
     border: 3px solid #15c5bd;
   }
 
+.oksend{
+    text-align: center;
+    color: #15c5bd;
+    font-size: 2em;
+    background-color: #303030;
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 5px;
+    box-shadow: 3px 3px 5px grey;
+}
+
 
 
 
