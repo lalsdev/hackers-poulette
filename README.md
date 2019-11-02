@@ -1,6 +1,6 @@
 # PHP Project 
 ## Hackers-Poulette Form
-We have to build a form to the name of the company Hackers Poulette. <br> They want to allow their users to contact their support team. My mission is to develop a PHP script displaying a contact form and processing the received answer (sanitize, validate, answer the user).<br>
+I have to build a form to the name of the company Hackers Poulette. <br> They want to allow their users to contact their support team. My mission is to develop a PHP script displaying a contact form and processing the received answer (sanitize, validate, answer the user).<br>
 You can see the form [here](http://hackers-poulettess.herokuapp.com/index.php).
 
 ## Motivation behind this?
@@ -56,8 +56,7 @@ Exercise as part of my training at [BeCode](https://www.becode.org/) @Brussels t
 
 
 # Progression
-The form is secure I think? <br>
-Sanitazation and validation to be approved <br>
+I have added an array for the countries, which did mess up the design, I am working on fixing that
 Any constructives comments, are welcome 👋
 
 
